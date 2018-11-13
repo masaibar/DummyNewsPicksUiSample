@@ -6,10 +6,6 @@
     <group>
         <item
             android:id="@+id/nav_hoge"
-            android:title="hoge" />
-
-        <item
-            android:id="@+id/nav_fuga"
-            android:title="fuga" />
+            android:title="A" />
     </group>
 </menu>

@@ -22,7 +22,8 @@
                 <android.support.v7.widget.Toolbar
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
-                    android:layout_height="?android:attr/actionBarSize" />
+                    android:layout_height="?android:attr/actionBarSize"
+                    app:layout_scrollFlags="enterAlways|scroll" />
             </android.support.design.widget.AppBarLayout>
 
             <android.support.constraint.ConstraintLayout
@@ -30,7 +31,7 @@
                 android:layout_height="match_parent">
 
                 <FrameLayout
-                    android:id="@+id/frame_container"
+                    android:id="@+id/container"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
                     android:layout_marginTop="?android:attr/actionBarSize"
