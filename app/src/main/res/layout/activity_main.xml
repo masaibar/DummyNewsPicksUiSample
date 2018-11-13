@@ -8,8 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-        tools:context=".MainActivity"
-        tools:openDrawer="start">
+        tools:context=".MainActivity">
 
         <android.support.design.widget.CoordinatorLayout
             android:layout_width="match_parent"
@@ -22,36 +21,37 @@
                 <android.support.v7.widget.Toolbar
                     android:id="@+id/toolbar"
                     android:layout_width="match_parent"
-                    android:layout_height="?android:attr/actionBarSize"
-                    app:layout_scrollFlags="enterAlways|scroll" />
+                    android:layout_height="?android:attr/actionBarSize"/>
             </android.support.design.widget.AppBarLayout>
 
-            <android.support.constraint.ConstraintLayout
+            <android.support.v4.widget.NestedScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-                <FrameLayout
-                    android:id="@+id/container"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_marginTop="?android:attr/actionBarSize"
-                    app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_view"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <android.support.design.widget.BottomNavigationView
-                    android:id="@+id/bottom_navigation_view"
-                    android:layout_width="0dp"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#EEEEEE"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:menu="@menu/menu_main_bottom" />
+                    android:orientation="vertical">
 
-            </android.support.constraint.ConstraintLayout>
+                    <FrameLayout
+                        android:id="@+id/container"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:background="#DDDDFF" />
+                </LinearLayout>
 
+            </android.support.v4.widget.NestedScrollView>
+
+            <android.support.design.widget.BottomNavigationView
+                android:id="@+id/bottom_navigation_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:background="#EEEEEE"
+                app:menu="@menu/menu_main_bottom" />
         </android.support.design.widget.CoordinatorLayout>
 
         <android.support.design.widget.NavigationView

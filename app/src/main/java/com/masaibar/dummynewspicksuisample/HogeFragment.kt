@@ -21,6 +21,12 @@ class HogeFragment : Fragment() {
             false
         )
 
+        binding.viewPager.adapter = HogeAdapter(
+            requireContext(),
+            childFragmentManager
+        )
+        binding.tabLayout.setupWithViewPager(binding.viewPager)
+
         return binding.root
     }
 }

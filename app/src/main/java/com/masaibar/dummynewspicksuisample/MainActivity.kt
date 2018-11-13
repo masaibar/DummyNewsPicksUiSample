@@ -3,8 +3,10 @@ package com.masaibar.dummynewspicksuisample
 import android.databinding.DataBindingUtil
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.design.widget.AppBarLayout
 import android.support.v4.app.Fragment
 import android.support.v7.app.ActionBarDrawerToggle
+import android.support.v7.widget.Toolbar
 import com.masaibar.dummynewspicksuisample.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -40,6 +42,7 @@ class MainActivity : AppCompatActivity() {
                         HogeFragment.newInstance(),
                         HogeFragment::class.java.simpleName
                     )
+                    setToolbarScrollFlags(toolbar,true)
                     true
                 }
                 R.id.bottom_nav_fuga -> {
@@ -47,6 +50,7 @@ class MainActivity : AppCompatActivity() {
                         FugaFragment.newInstance(),
                         FugaFragment::class.java.simpleName
                     )
+                    setToolbarScrollFlags(toolbar,false)
                     true
                 }
                 else -> false
@@ -73,5 +77,18 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }.commitNow()
+    }
+
+    private fun setToolbarScrollFlags(
+        toolbar: Toolbar,
+        enable: Boolean
+    ) {
+        val params = toolbar.layoutParams as AppBarLayout.LayoutParams
+        if (enable) {
+            params.scrollFlags = AppBarLayout.LayoutParams.SCROLL_FLAG_SCROLL or AppBarLayout.LayoutParams.SCROLL_FLAG_ENTER_ALWAYS
+        } else {
+            params.scrollFlags = 0
+        }
+        toolbar.layoutParams = params
     }
 }
